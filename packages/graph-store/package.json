@@ -12,11 +12,12 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@agkl/domain": "workspace:*",
-    "@agkl/compiler": "workspace:*"
+    "@agkl/compiler": "workspace:*",
+    "@agkl/domain": "workspace:*"
   },
   "devDependencies": {
-    "typescript": "^5.8.0"
+    "typescript": "^5.8.0",
+    "vitest": "^4.1.10"
   },
   "optionalDependencies": {
     "lbug": "^0.18.0"
