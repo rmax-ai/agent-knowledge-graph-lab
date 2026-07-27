@@ -1,0 +1,30 @@
+{
+  "name": "agent-knowledge-graph-lab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Research environment for typed knowledge graphs + Eve agents",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.22.0",
+  "scripts": {
+    "dev": "pnpm --filter @agkl/web dev",
+    "build": "pnpm --filter @agkl/web build",
+    "start": "pnpm --filter @agkl/web start",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "test": "vitest run",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "test:e2e": "playwright test",
+    "knowledge:validate": "tsx scripts/validate-knowledge.ts",
+    "knowledge:compile": "tsx scripts/build-graph.ts",
+    "graph:build": "tsx scripts/build-graph.ts",
+    "graph:inspect": "tsx scripts/inspect-graph.ts",
+    "graph:clean": "tsx scripts/clean-data.ts",
+    "eval": "tsx scripts/run-evals.ts",
+    "eval:smoke": "tsx scripts/run-evals.ts --smoke",
+    "eval:compare": "tsx scripts/run-evals.ts --compare"
+  }
+}
