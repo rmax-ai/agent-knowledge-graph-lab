@@ -1,4 +1,4 @@
-import type { GraphStore, KnowledgeContext } from "@agkl/domain";
+import type { GraphStore, KnowledgeContext, ScoredEntity } from "@agkl/domain";
 import type { KnowledgeRetriever, KnowledgeRetrievalRequest } from "./types.js";
 
 /** Retrieves knowledge through the typed graph. */

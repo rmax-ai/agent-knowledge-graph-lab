@@ -19,11 +19,11 @@
     "composite": true,
     "incremental": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node"]
   },
   "exclude": ["node_modules", "dist", ".next", ".data"],
   "references": [
-    { "path": "./apps/web" },
     { "path": "./packages/domain" },
     { "path": "./packages/okf" },
     { "path": "./packages/compiler" },

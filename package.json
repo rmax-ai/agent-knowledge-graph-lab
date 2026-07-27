@@ -11,7 +11,7 @@
     "dev": "pnpm --filter @akgl/web dev",
     "build": "pnpm --filter './packages/*' build && pnpm --filter @akgl/web build",
     "start": "pnpm --filter @akgl/web start",
-    "typecheck": "pnpm -r typecheck",
+    "typecheck": "tsc --noEmit && pnpm --filter @agkl/web typecheck",
     "lint": "eslint .",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
@@ -34,5 +34,9 @@
       "react-dom": "^19.0.0",
       "next": "^16.0.0"
     }
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.1",
+    "vitest": "^4.1.10"
   }
 }

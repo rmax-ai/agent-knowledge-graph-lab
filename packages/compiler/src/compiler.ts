@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import type { CompiledCorpus, CompilerDiagnostic, KnowledgeEntity, KnowledgeRelation } from "@agkl/domain";
 import type { ParsedDocument } from "@agkl/okf";
 
@@ -46,9 +47,8 @@ function compileDocument(doc: ParsedDocument): KnowledgeEntity {
     id: frontmatter.id as string,
     kind: frontmatter.kind as KnowledgeEntity["kind"],
     title: frontmatter.title as string,
-    summary: undefined,
     status: (frontmatter.status as KnowledgeEntity["status"]) ?? "draft",
-    confidence: typeof frontmatter.confidence === "number" ? frontmatter.confidence : undefined,
+    ...(typeof frontmatter.confidence === "number" ? { confidence: frontmatter.confidence } : {}),
     tags: Array.isArray(frontmatter.tags) ? frontmatter.tags : [],
     source: {
       file: doc.file,
@@ -60,16 +60,8 @@ function compileDocument(doc: ParsedDocument): KnowledgeEntity {
   };
 }
 
-function generateCorpusHash(entities: readonly KnowledgeEntity[], relations: readonly KnowledgeRelation[]): string {
-  // Deterministic hash for regression testing
-  const { createHash } = await_import_crypto();
+function generateCorpusHash(entities: readonly KnowledgeEntity[], _relations: readonly KnowledgeRelation[]): string {
   const h = createHash("sha256");
-  h.update(JSON.stringify({ entityCount: entities.length, relationCount: relations.length }));
+  h.update(JSON.stringify({ entityCount: entities.length, relationCount: _relations.length }));
   return h.digest("hex").slice(0, 16);
-}
-
-// Stub — will be replaced by proper import
-function await_import_crypto() {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  return require("node:crypto") as typeof import("node:crypto");
 }
