@@ -1,0 +1,26 @@
+# competency-questions.yaml — Questions the knowledge graph should answer
+
+questions:
+  - id: direct-lookup
+    question: "What is the definition of concept X?"
+    expected_operations: [searchKnowledge, getKnowledgeEntity]
+
+  - id: evidence-check
+    question: "What evidence supports claim Y?"
+    expected_operations: [findSupportingEvidence]
+
+  - id: contradiction-check
+    question: "Are there any claims that contradict claim Z?"
+    expected_operations: [findContradictions]
+
+  - id: multi-hop
+    question: "What concepts does claim A depend on, transitively?"
+    expected_operations: [expandKnowledge]
+
+  - id: provenance
+    question: "Where did claim B originate?"
+    expected_operations: [traceProvenance]
+
+  - id: impact-analysis
+    question: "What would be affected if concept C were deprecated?"
+    expected_operations: [findKnowledgePaths]

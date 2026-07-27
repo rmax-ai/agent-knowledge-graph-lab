@@ -2,20 +2,21 @@
   "name": "agent-knowledge-graph-lab",
   "version": "0.1.0",
   "private": true,
-  "description": "Research environment for typed knowledge graphs + Eve agents",
+  "description": "Local-first research environment for building and evaluating agents over typed knowledge graphs",
   "engines": {
-    "node": ">=22"
+    "node": ">=22 <23"
   },
   "packageManager": "pnpm@10.22.0",
   "scripts": {
-    "dev": "pnpm --filter @agkl/web dev",
-    "build": "pnpm --filter @agkl/web build",
-    "start": "pnpm --filter @agkl/web start",
+    "dev": "pnpm --filter @akgl/web dev",
+    "build": "pnpm --filter './packages/*' build && pnpm --filter @akgl/web build",
+    "start": "pnpm --filter @akgl/web start",
     "typecheck": "pnpm -r typecheck",
-    "lint": "pnpm -r lint",
+    "lint": "eslint .",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "test": "vitest run",
+    "test:watch": "vitest",
     "test:integration": "vitest run --config vitest.integration.config.ts",
     "test:e2e": "playwright test",
     "knowledge:validate": "tsx scripts/validate-knowledge.ts",
@@ -26,5 +27,12 @@
     "eval": "tsx scripts/run-evals.ts",
     "eval:smoke": "tsx scripts/run-evals.ts --smoke",
     "eval:compare": "tsx scripts/run-evals.ts --compare"
+  },
+  "pnpm": {
+    "overrides": {
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0",
+      "next": "^16.0.0"
+    }
   }
 }

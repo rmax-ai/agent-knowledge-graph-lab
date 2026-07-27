@@ -16,6 +16,22 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "composite": true
-  }
+    "composite": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": ["node_modules", "dist", ".next", ".data"],
+  "references": [
+    { "path": "./apps/web" },
+    { "path": "./packages/domain" },
+    { "path": "./packages/okf" },
+    { "path": "./packages/compiler" },
+    { "path": "./packages/graph-store" },
+    { "path": "./packages/retrieval" },
+    { "path": "./packages/agent-runtime" },
+    { "path": "./packages/evals" },
+    { "path": "./packages/observability" },
+    { "path": "./packages/config" }
+  ]
 }

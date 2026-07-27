@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": ".",
+    "jsx": "preserve",
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "plugins": [{ "name": "next" }]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"],
+  "references": [
+    { "path": "../../packages/domain" },
+    { "path": "../../packages/config" },
+    { "path": "../../packages/graph-store" },
+    { "path": "../../packages/agent-runtime" },
+    { "path": "../../packages/observability" },
+    { "path": "../../packages/evals" }
+  ]
+}

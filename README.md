@@ -1,85 +1,88 @@
 # Agent Knowledge Graph Lab
 
-Research environment for evaluating whether **typed knowledge graphs** improve agent retrieval, reasoning, and provenance tracing compared to document retrieval baselines.
+[![CI](https://github.com/rmax-ai/agent-knowledge-graph-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/rmax-ai/agent-knowledge-graph-lab/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**Stack:** TypeScript · Next.js App Router · Eve agents · LadybugDB · OKF Markdown
-
-## What This Is
-
-A local-first research lab where:
-- **Knowledge** lives as version-controlled Markdown (`knowledge/**/*.md`)
-- **A compiler** validates + materializes it into a typed property graph
-- **Eve agents** query the graph through semantic tools (not raw Cypher)
-- **An evaluation harness** compares graph retrieval against direct-document baselines
-
-The primary research question: *Under which classes of agent tasks does typed graph retrieval produce better evidence selection, provenance, contradiction detection, and multi-hop reasoning than conventional document retrieval?*
+Local-first research environment for building and evaluating agents that operate over a typed knowledge graph. Compares three knowledge-access strategies — direct Markdown retrieval, graph retrieval, and hybrid — to determine when typed graph structures improve agent evidence selection, provenance tracing, and multi-hop reasoning.
 
 ## Quick Start
 
 ```bash
-# Prerequisites: Node.js 22+, pnpm
+# Prerequisites: Node.js 22+, pnpm 10+
+
+git clone git@github.com:rmax-ai/agent-knowledge-graph-lab.git
+cd agent-knowledge-graph-lab
 pnpm install
-pnpm dev            # Starts Next.js + initializes embedded graph
+pnpm dev                    # Starts Next.js + initializes embedded graph
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## What This Is
+
+- **A research console** for comparing retrieval strategies (graph vs. document vs. hybrid)
+- **A typed knowledge graph** compiled from human-readable Markdown (OKF-compatible)
+- **An agent harness** using Eve for structured tool-based knowledge investigation
+- **An evaluation framework** with benchmarks, metrics, and regression testing
+
+## What This Is Not
+
+- A production knowledge management platform
+- A general-purpose enterprise search system
+- An autonomous ontology generator
+- A collaborative editing environment
+
 ## Architecture
 
 ```
-Markdown (canonical) → Compiler → LadybugDB (embedded graph) → Semantic Tools → Eve Agents → Next.js Console
+Markdown (canonical) → Compiler → GraphStore → Semantic Tools → Eve Agents → Web Console
 ```
 
-- **Markdown is canonical.** The graph is a regenerable projection.
-- **Agents use semantic tools** — `searchKnowledge`, `expandKnowledge`, `findPaths`, `findEvidence`, `findContradictions`, `traceProvenance` — never raw database queries.
-- **Every relation carries provenance** — source file, assertion origin, confidence, evidence.
-- **Agent writes are proposals** — must pass schema + reference + evidence validation, then human review.
-- **Server Components by default.** Client Components only for browser APIs (graph viz, streaming chat).
+- **Canonical knowledge:** `knowledge/**/*.md` with YAML frontmatter
+- **Graph engine:** LadybugDB (embedded, zero-config)
+- **Agent framework:** Eve with typed semantic tools
+- **Web console:** Next.js 16 App Router
 
-## Project Structure
+Read [ARCHITECTURE.md](ARCHITECTURE.md) for details.
+
+## Repository Structure
 
 ```
-├── apps/web/          # Next.js App Router
+├── apps/web/          # Next.js App Router application
 ├── agent/             # Eve agents, tools, skills, subagents
 ├── packages/          # domain, okf, compiler, graph-store, retrieval, agent-runtime, evals, observability, config
-├── knowledge/         # Canonical OKF Markdown documents
+├── knowledge/         # Canonical knowledge documents (OKF)
 ├── ontology/          # Node types, relation types, constraints
-├── datasets/          # Benchmark questions + expected results
-├── docs/              # Architecture, ADRs, research notes
-└── scripts/           # Build, validate, eval, inspect
+├── datasets/          # Benchmark questions and expected outputs
+├── docs/              # Architecture docs, ADRs, research notes
+└── scripts/           # Build, validate, evaluate
 ```
 
 ## Commands
 
-| Command | Description |
+| Command | Purpose |
 |---|---|
-| `pnpm dev` | Start Next.js dev server + init graph |
-| `pnpm build` | Production build |
-| `pnpm typecheck` | Full-project type checking |
-| `pnpm lint` | ESLint |
+| `pnpm dev` | Start Next.js dev server + initialize graph |
+| `pnpm build` | Build all packages + Next.js production build |
+| `pnpm typecheck` | TypeScript type checking across all packages |
+| `pnpm lint` | ESLint across the project |
 | `pnpm test` | Vitest (unit + contract + integration) |
-| `pnpm test:e2e` | Playwright end-to-end |
-| `pnpm knowledge:validate` | Validate knowledge documents |
-| `pnpm knowledge:compile` | Compile corpus → graph |
+| `pnpm test:e2e` | Playwright end-to-end tests |
+| `pnpm knowledge:validate` | Validate canonical knowledge documents |
+| `pnpm knowledge:compile` | Compile Markdown → graph entities |
+| `pnpm graph:build` | Build the graph database |
+| `pnpm graph:inspect` | Interactive graph inspection |
 | `pnpm eval` | Run evaluation benchmarks |
-| `pnpm eval:compare` | Compare retrieval modes |
 
 ## Documentation
 
-- [SPEC.md](SPEC.md) — Full specification (ground truth)
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — System architecture
-- [docs/ROADMAP.md](docs/ROADMAP.md) — Development phases
-- [AGENTS.md](AGENTS.md) — AI coding agent conventions
-
-## Research Goals
-
-- Does graph traversal improve multi-hop question answering?
-- Do typed relations improve evidence precision?
-- Does explicit provenance reduce unsupported claims?
-- Do contradiction relations improve uncertainty handling?
-- Does graph retrieval reduce context-window usage?
-- Can agents choose useful graph operations reliably?
+- [ARCHITECTURE.md](ARCHITECTURE.md) — System architecture and design decisions
+- [docs/architecture/](docs/architecture/) — Detailed architecture documentation
+- [docs/adr/](docs/adr/) — Architecture Decision Records
+- [docs/research/](docs/research/) — Research notes and experimental results
+- [TS_DEVELOPMENT.md](TS_DEVELOPMENT.md) — TypeScript development conventions
+- [AGENTS.md](AGENTS.md) — Conventions for AI coding agents
 
 ## License
 
-MIT — see [LICENSE](LICENSE)
+MIT — see [LICENSE](LICENSE).

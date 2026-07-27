@@ -1,0 +1,42 @@
+# relation-types.yaml — Relation types for v1
+
+relations:
+  - kind: SUPPORTS
+    description: Evidence or argument supports a claim
+    inverse: SUPPORTED_BY
+
+  - kind: CONTRADICTS
+    description: One claim directly contradicts another
+    inverse: CONTRADICTED_BY
+
+  - kind: DERIVED_FROM
+    description: Entity was derived from a source
+    inverse: DERIVES
+
+  - kind: MENTIONS
+    description: Entity references another entity
+    inverse: MENTIONED_BY
+
+  - kind: DEPENDS_ON
+    description: Entity depends on another for correctness
+    inverse: DEPENDED_ON_BY
+
+  - kind: SELECTS
+    description: Decision selects a specific option
+    inverse: SELECTED_BY
+
+  - kind: REJECTS
+    description: Decision rejects a specific option
+    inverse: REJECTED_BY
+
+  - kind: IMPLEMENTS
+    description: Project or component implements a concept
+    inverse: IMPLEMENTED_BY
+
+  - kind: RELATED_TO
+    description: General association
+    inverse: RELATED_TO
+
+  - kind: SUPERSEDES
+    description: Newer entity replaces an older one
+    inverse: SUPERSEDED_BY

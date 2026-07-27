@@ -5,19 +5,21 @@ node_modules/
 # Build output
 .next/
 dist/
+out/
+build/
 *.tsbuildinfo
 
-# Runtime data (regenerable)
+# Data directories (runtime artifacts)
 .data/
 
 # Environment
 .env
 .env.local
-.env*.local
+.env.*.local
 
 # IDE
-.vscode/
 .idea/
+.vscode/
 *.swp
 *.swo
 
@@ -35,8 +37,12 @@ test-results/
 playwright-report/
 playwright/.cache/
 
-# Misc
-*.tgz
-.cache/
-tmp/
-temp/
+# TypeScript
+*.tsbuildinfo
+
+# Lock files (pnpm-lock.yaml IS committed)
+# **/uv.lock — Python only, not relevant here
+
+# LadybugDB artifacts
+*.lbug/
+ladybug_data/

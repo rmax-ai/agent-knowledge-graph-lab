@@ -1,0 +1,24 @@
+{
+  "name": "@agkl/graph-store",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@agkl/domain": "workspace:*",
+    "@agkl/compiler": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  },
+  "optionalDependencies": {
+    "lbug": "^0.18.0"
+  }
+}

@@ -1,0 +1,34 @@
+# constraints.yaml — Ontology constraints for v1
+
+constraints:
+  - id: unique-entity-ids
+    description: Entity IDs must be globally unique across the corpus
+    severity: error
+
+  - id: relation-targets-exist
+    description: Relation targets must reference existing entity IDs
+    severity: error
+
+  - id: confidence-range
+    description: Confidence values must be between 0 and 1
+    severity: error
+
+  - id: accepted-claims-evidence
+    description: Claims with status "accepted" must have supporting evidence or an explicit exemption
+    severity: warning
+
+  - id: deprecated-reason
+    description: Deprecated entities must include a deprecation reason
+    severity: warning
+
+  - id: no-cycles
+    description: Cyclic dependency chains must be reported
+    severity: error
+
+  - id: duplicate-relations
+    description: Duplicate relations between the same entities must be collapsed deterministically
+    severity: info
+
+  - id: file-order-independence
+    description: Compilation must produce identical results regardless of file processing order
+    severity: error
