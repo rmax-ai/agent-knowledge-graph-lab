@@ -13,13 +13,11 @@
   },
   "dependencies": {
     "@agkl/compiler": "workspace:*",
-    "@agkl/domain": "workspace:*"
+    "@agkl/domain": "workspace:*",
+    "@ladybugdb/core": "^0.18.3"
   },
   "devDependencies": {
     "typescript": "^5.8.0",
     "vitest": "^4.1.10"
-  },
-  "optionalDependencies": {
-    "lbug": "^0.18.0"
   }
 }
