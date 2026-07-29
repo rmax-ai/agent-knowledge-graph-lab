@@ -1,5 +1,6 @@
 import { readFileSync, existsSync } from "node:fs";
-import { join } from "node:path";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import { MemoryGraphStore } from "@agkl/graph-store";
 import type { CompiledCorpus, GraphStore } from "@agkl/domain";
 
@@ -9,27 +10,17 @@ let _store: GraphStore | null = null;
 export async function getGraphStore(): Promise<GraphStore> {
   if (_store) return _store;
 
-  const candidates = [
-    join(process.cwd(), ".data", "compiled-corpus.json"),
-    join(process.cwd(), "..", "..", ".data", "compiled-corpus.json"),
-    join(process.cwd(), "..", "..", "..", ".data", "compiled-corpus.json"),
-  ];
+  const __dirname = dirname(fileURLToPath(import.meta.url));
+  const rootDir = join(__dirname, "..", "..", "..");
+  const corpusPath = join(rootDir, ".data", "compiled-corpus.json");
 
-  let corpus: CompiledCorpus | null = null;
-  for (const p of candidates) {
-    if (existsSync(p)) {
-      corpus = JSON.parse(readFileSync(p, "utf-8"));
-      break;
-    }
-  }
-
-  if (!corpus) {
+  if (!existsSync(corpusPath)) {
     throw new Error(
-      "Compiled corpus not found. Run `pnpm graph:build` first.\n" +
-        `Searched: ${candidates.join(", ")}`,
+      `Compiled corpus not found at ${corpusPath}. Run \`pnpm graph:build\` from the project root first.`,
     );
   }
 
+  const corpus = JSON.parse(readFileSync(corpusPath, "utf-8")) as CompiledCorpus;
   const store = new MemoryGraphStore();
   await store.initialise();
   await store.rebuild(corpus);

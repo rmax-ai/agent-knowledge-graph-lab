@@ -1,13 +1,13 @@
 // @agkl/domain — Database-independent domain types
 // Must not import: Next.js, React, Eve, LadybugDB, or filesystem implementations.
 
-export type { KnowledgeEntity, EntityKind, EntityStatus, JsonValue } from "./entities.js";
-export type { KnowledgeRelation, RelationKind, RelationStatus } from "./relations.js";
-export type { KnowledgePath, KnowledgeSubgraph } from "./graph.js";
-export type { EvidenceRecord, ProvenanceRecord, ProvenanceTrace, SourceReference } from "./provenance.js";
-export type { Contradiction } from "./contradictions.js";
-export type { KnowledgePatchProposal, PatchOperation } from "./patches.js";
-export type { KnowledgeQuery, KnowledgeContext, ScoredEntity, SearchEntitiesRequest, ExpandGraphRequest, FindPathsRequest, FindEvidenceRequest, FindContradictionsRequest, TraceProvenanceRequest } from "./queries.js";
-export type { GraphStoreHealth, GraphBuildReport, GraphStore } from "./store.js";
-export type { CompilerDiagnostic, CompiledCorpus, CompiledDocument } from "./compiler.js";
-export { KnowledgeValidationError, KnowledgeNotFoundError, GraphBuildError, GraphQueryError, AgentExecutionError, ToolInputError, ToolLimitError, EvaluationError } from "./errors.js";
+export type { KnowledgeEntity, EntityKind, EntityStatus, JsonValue } from "./entities";
+export type { KnowledgeRelation, RelationKind, RelationStatus } from "./relations";
+export type { KnowledgePath, KnowledgeSubgraph } from "./graph";
+export type { EvidenceRecord, ProvenanceRecord, ProvenanceTrace, SourceReference } from "./provenance";
+export type { Contradiction } from "./contradictions";
+export type { KnowledgePatchProposal, PatchOperation } from "./patches";
+export type { KnowledgeQuery, KnowledgeContext, ScoredEntity, SearchEntitiesRequest, ExpandGraphRequest, FindPathsRequest, FindEvidenceRequest, FindContradictionsRequest, TraceProvenanceRequest } from "./queries";
+export type { GraphStoreHealth, GraphBuildReport, GraphStore } from "./store";
+export type { CompilerDiagnostic, CompiledCorpus, CompiledDocument } from "./compiler";
+export { KnowledgeValidationError, KnowledgeNotFoundError, GraphBuildError, GraphQueryError, AgentExecutionError, ToolInputError, ToolLimitError, EvaluationError } from "./errors";

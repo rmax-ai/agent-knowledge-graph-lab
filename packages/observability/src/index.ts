@@ -1,4 +1,4 @@
 // @agkl/observability — Structured logging and trace events
 
-export { trace, log } from "./logger.js";
-export type { TraceEvent } from "./types.js";
+export { trace, log } from "./logger";
+export type { TraceEvent } from "./types";
