@@ -1,6 +1,6 @@
 import { defineTool } from "eve/tools";
 import { z } from "zod";
-import { getGraphStore } from "../lib/graph-store.js";
+import { getGraphStore } from "../../lib/graph-store.js";
 
 const VALID_KINDS = [
   "SUPPORTS", "CONTRADICTS", "DERIVED_FROM", "MENTIONS",

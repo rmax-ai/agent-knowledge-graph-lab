@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
     "@agkl/okf",
     "@agkl/compiler",
   ],
-  serverExternalPackages: ["lbug"],
+  serverExternalPackages: ["@ladybugdb/core"],
 };
 
 export default withEve(nextConfig);
