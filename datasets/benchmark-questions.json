@@ -1,0 +1,177 @@
+[
+  {
+    "id": "q001",
+    "question": "What is the primary purpose of the Agent Knowledge Graph Lab?",
+    "expectedEntities": ["project-agent-knowledge-graph-lab"],
+    "expectedRelations": ["DEPENDS_ON"],
+    "category": "project-overview"
+  },
+  {
+    "id": "q002",
+    "question": "How does graph retrieval compare to document retrieval for multi-hop questions?",
+    "expectedEntities": ["claim-graph-retrieval-outperforms-document", "concept-graph-retrieval", "concept-document-retrieval"],
+    "expectedRelations": ["SUPPORTS", "CONTRADICTS"],
+    "category": "retrieval-comparison"
+  },
+  {
+    "id": "q003",
+    "question": "What evidence supports the claim that typed relations improve precision?",
+    "expectedEntities": ["claim-typed-relations-improve-precision", "source-relation-accuracy-study-2025", "evidence-graph-precision-experiment"],
+    "expectedRelations": ["SUPPORTS", "DERIVED_FROM"],
+    "category": "evidence-tracing"
+  },
+  {
+    "id": "q004",
+    "question": "How does provenance tracing reduce hallucination in agent answers?",
+    "expectedEntities": ["claim-provenance-reduces-hallucination", "concept-provenance-tracing", "evidence-provenance-completeness-study"],
+    "expectedRelations": ["SUPPORTS", "DERIVED_FROM"],
+    "category": "provenance"
+  },
+  {
+    "id": "q005",
+    "question": "What are the three retrieval modes in the evaluation harness?",
+    "expectedEntities": ["concept-evaluation-harness", "concept-document-retrieval", "concept-graph-retrieval"],
+    "expectedRelations": ["DEPENDS_ON"],
+    "category": "evaluation"
+  },
+  {
+    "id": "q006",
+    "question": "Why was LadybugDB chosen over KuzuDB?",
+    "expectedEntities": ["decision-use-ladybugdb", "technology-ladybugdb", "technology-kuzudb"],
+    "expectedRelations": ["SELECTS", "REJECTS", "SUPERSEDES"],
+    "category": "architecture-decisions"
+  },
+  {
+    "id": "q007",
+    "question": "What are the 8 semantic tools available to Eve agents?",
+    "expectedEntities": ["concept-semantic-graph-tools"],
+    "expectedRelations": ["IMPLEMENTS"],
+    "category": "agent-tools"
+  },
+  {
+    "id": "q008",
+    "question": "How does the knowledge compilation pipeline work?",
+    "expectedEntities": ["concept-knowledge-compilation"],
+    "expectedRelations": ["DEPENDS_ON", "RELATED_TO"],
+    "category": "architecture"
+  },
+  {
+    "id": "q009",
+    "question": "What mechanisms prevent agents from polluting the knowledge graph?",
+    "expectedEntities": ["decision-agent-writes-proposal-only", "decision-semantic-tools-only", "claim-semantic-tools-prevent-hallucination"],
+    "expectedRelations": ["SELECTS", "REJECTS", "SUPPORTS"],
+    "category": "agent-safety"
+  },
+  {
+    "id": "q010",
+    "question": "What contradictions exist regarding context-window usage?",
+    "expectedEntities": ["claim-graph-reduces-context-window", "claim-context-window-not-bottleneck"],
+    "expectedRelations": ["CONTRADICTS"],
+    "category": "contradictions"
+  },
+  {
+    "id": "q011",
+    "question": "What are the 10 relation kinds in the knowledge graph ontology?",
+    "expectedEntities": ["decision-typed-relation-schema"],
+    "expectedRelations": ["SELECTS"],
+    "category": "ontology"
+  },
+  {
+    "id": "q012",
+    "question": "How does contradiction detection work in the knowledge graph?",
+    "expectedEntities": ["concept-contradiction-detection"],
+    "expectedRelations": ["DEPENDS_ON", "RELATED_TO"],
+    "category": "contradictions"
+  },
+  {
+    "id": "q013",
+    "question": "Summarize the evidence for graph retrieval reducing context-window usage.",
+    "expectedEntities": ["claim-graph-reduces-context-window", "source-agent-memory-benchmark-2026", "claim-context-window-not-bottleneck"],
+    "expectedRelations": ["SUPPORTS", "DERIVED_FROM", "CONTRADICTS"],
+    "category": "evidence-synthesis"
+  },
+  {
+    "id": "q014",
+    "question": "What is the relationship between provenance completeness and answer accuracy?",
+    "expectedEntities": ["evidence-provenance-completeness-study", "claim-provenance-reduces-hallucination", "source-provenance-agent-benchmark-2024"],
+    "expectedRelations": ["SUPPORTS", "DERIVED_FROM"],
+    "category": "provenance"
+  },
+  {
+    "id": "q015",
+    "question": "What technologies are used in the knowledge graph stack?",
+    "expectedEntities": ["technology-ladybugdb", "technology-ladybugdb-adapter", "technology-kuzudb"],
+    "expectedRelations": ["IMPLEMENTS", "SUPERSEDES"],
+    "category": "technology-stack"
+  },
+  {
+    "id": "q016",
+    "question": "Compare the precision of graph vs document retrieval at 3+ hops.",
+    "expectedEntities": ["evidence-graph-precision-recall-curve", "claim-graph-retrieval-outperforms-document", "source-graph-retrieval-benchmark-2025"],
+    "expectedRelations": ["SUPPORTS", "DERIVED_FROM"],
+    "category": "retrieval-comparison"
+  },
+  {
+    "id": "q017",
+    "question": "What are the 7 entity kinds in the domain model?",
+    "expectedEntities": ["concept-document-retrieval", "claim-graph-reduces-context-window", "evidence-graph-precision-experiment", "source-graph-retrieval-benchmark-2025", "decision-use-ladybugdb", "technology-ladybugdb", "project-agent-knowledge-graph-lab"],
+    "expectedRelations": [],
+    "category": "domain-model"
+  },
+  {
+    "id": "q018",
+    "question": "How does the hybrid retrieval mode combine graph and document approaches?",
+    "expectedEntities": ["claim-hybrid-retrieval-best-of-both", "concept-graph-retrieval", "concept-document-retrieval"],
+    "expectedRelations": ["DEPENDS_ON"],
+    "category": "retrieval-comparison"
+  },
+  {
+    "id": "q019",
+    "question": "What limitations exist in the fixed 10-relation ontology?",
+    "expectedEntities": ["decision-typed-relation-schema", "concept-semantic-graph-tools"],
+    "expectedRelations": ["SELECTS", "REJECTS"],
+    "category": "ontology"
+  },
+  {
+    "id": "q020",
+    "question": "Trace the provenance chain for the claim that typed relations improve precision.",
+    "expectedEntities": ["claim-typed-relations-improve-precision", "source-relation-accuracy-study-2025", "evidence-graph-precision-experiment"],
+    "expectedRelations": ["DERIVED_FROM", "SUPPORTS"],
+    "category": "provenance"
+  },
+  {
+    "id": "q021",
+    "question": "What evaluation metrics are used to compare retrieval modes?",
+    "expectedEntities": ["concept-evaluation-harness"],
+    "expectedRelations": ["DEPENDS_ON"],
+    "category": "evaluation"
+  },
+  {
+    "id": "q022",
+    "question": "How does the research environment ensure reproducibility?",
+    "expectedEntities": ["concept-knowledge-compilation", "project-agent-knowledge-graph-lab"],
+    "expectedRelations": ["DEPENDS_ON", "IMPLEMENTS"],
+    "category": "architecture"
+  },
+  {
+    "id": "q023",
+    "question": "What is the relationship between vector retrieval and graph retrieval?",
+    "expectedEntities": ["concept-graph-retrieval", "concept-vector-retrieval", "concept-document-retrieval"],
+    "expectedRelations": ["RELATED_TO"],
+    "category": "retrieval-comparison"
+  },
+  {
+    "id": "q024",
+    "question": "How does the agent proposal system maintain knowledge integrity?",
+    "expectedEntities": ["decision-agent-writes-proposal-only", "claim-semantic-tools-prevent-hallucination"],
+    "expectedRelations": ["SUPPORTS"],
+    "category": "agent-safety"
+  },
+  {
+    "id": "q025",
+    "question": "What failure categories are tracked in the evaluation harness?",
+    "expectedEntities": ["concept-evaluation-harness"],
+    "expectedRelations": ["DEPENDS_ON"],
+    "category": "evaluation"
+  }
+]

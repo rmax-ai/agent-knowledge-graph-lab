@@ -4,7 +4,7 @@
 export type { KnowledgeEntity, EntityKind, EntityStatus, JsonValue } from "./entities.js";
 export type { KnowledgeRelation, RelationKind, RelationStatus } from "./relations.js";
 export type { KnowledgePath, KnowledgeSubgraph } from "./graph.js";
-export type { EvidenceRecord, ProvenanceRecord, ProvenanceTrace } from "./provenance.js";
+export type { EvidenceRecord, ProvenanceRecord, ProvenanceTrace, SourceReference } from "./provenance.js";
 export type { Contradiction } from "./contradictions.js";
 export type { KnowledgePatchProposal, PatchOperation } from "./patches.js";
 export type { KnowledgeQuery, KnowledgeContext, ScoredEntity, SearchEntitiesRequest, ExpandGraphRequest, FindPathsRequest, FindEvidenceRequest, FindContradictionsRequest, TraceProvenanceRequest } from "./queries.js";

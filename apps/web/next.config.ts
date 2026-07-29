@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withEve } from "eve/next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
@@ -16,4 +17,4 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["lbug"],
 };
 
-export default nextConfig;
+export default withEve(nextConfig);
